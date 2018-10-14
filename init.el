@@ -23,9 +23,12 @@
 ;; UI
 (menu-bar-mode   -1)
 
+
 ;; Line Numbers
+(global-linum-mode 1) ; For older versions of emacs
 (when (version<= "26.0.50" emacs-version )
-  (global-display-line-numbers-mode))
+    (global-linum-mode 0)
+    (global-display-line-numbers-mode))
 
 ;; Org Mode Setup
 (global-set-key "\C-cl" 'org-store-link)
