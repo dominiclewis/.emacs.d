@@ -19,16 +19,23 @@
   :ensure t
   :config
   (load-theme 'doom-one t))
+;; Company
+(use-package company
+  :ensure t
+  :config
+  (setq company-idle-delay 0)
+  (setq company-minimum-prefix-length 3)
+  (global-company-mode t))
 
 ;; UI
 (menu-bar-mode   -1)
 
-
 ;; Line Numbers
-(global-linum-mode 1) ; For older versions of emacs
 (when (version<= "26.0.50" emacs-version )
-    (global-linum-mode 0)
     (global-display-line-numbers-mode))
+
+;;Column Mode
+(setq column-number-mode t)
 
 ;; Org Mode Setup
 (global-set-key "\C-cl" 'org-store-link)
@@ -37,7 +44,6 @@
 (global-set-key "\C-cb" 'org-switchb)
 
 
-;;Delete this if there's any issues (it will be generated again I think)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -50,4 +56,3 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-;;DELETE UNTILL HERE
