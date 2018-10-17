@@ -19,7 +19,8 @@
   :ensure t
   :config
   (load-theme 'doom-one t))
-;; Company
+
+;; Company - Autocompletion
 (use-package company
   :ensure t
   :config
@@ -27,6 +28,21 @@
   (setq company-minimum-prefix-length 3)
   (global-company-mode t))
 
+;;Try - Test out packages
+(use-package try
+	:ensure t)
+
+;;Which Key - Keybinding
+(use-package which-key
+        :ensure t
+	:config
+	(which-key-mode))
+
+;;Org Bullets - Pretty Bullets
+(use-package org-bullets
+        :ensure t
+        :config
+        (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 ;; UI
 (menu-bar-mode   -1)
 
