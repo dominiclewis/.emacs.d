@@ -27,6 +27,14 @@
   (doom-themes-org-config)
   )
 
+;; projectile
+ (use-package projectile
+   :ensure t
+   :bind ("C-c p" . projectile-command-map)
+   :config
+   (projectile-global-mode)
+   (setq projectile-completion-system 'default))
+
 ;; Company - Autocompletion
 (use-package company
   :ensure t
