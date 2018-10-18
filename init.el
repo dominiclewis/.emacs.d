@@ -17,8 +17,15 @@
 ;; Theme
 (use-package doom-themes
   :ensure t
+  :init
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+	doom-themes-enable-italic t) ; if nil, italics is universally disable
   :config
-  (load-theme 'doom-one t))
+  (load-theme 'doom-one t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config)
+  )
 
 ;; Company - Autocompletion
 (use-package company
@@ -39,10 +46,10 @@
 	(which-key-mode))
 
 ;;Org Bullets - Pretty Bullets
-(use-package org-bullets
-        :ensure t
-        :config
-        (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+;(use-package org-bullets
+;        :ensure t
+;        :config
+;        (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 ;; UI
 (menu-bar-mode   -1)
 
