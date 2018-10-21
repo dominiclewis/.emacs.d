@@ -45,14 +45,23 @@
 
 ;;Try - Test out packages
 (use-package try
-	:ensure t)
+  :ensure t)
 
 ;;Which Key - Keybinding
 (use-package which-key
         :ensure t
 	:config
 	(which-key-mode))
-
+					;
+;;Spell Checking
+(use-package flyspell
+  :ensure t
+  :defer t
+  :init
+  (progn
+    (add-hook 'prog-mode-hook 'flyspell-prog-mode)
+    (add-hook 'text-mode-hook 'flyspell-mode)
+    ))
 ;;Org Bullets - Pretty Bullets
 ;(use-package org-bullets
 ;        :ensure t
