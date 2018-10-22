@@ -42,7 +42,11 @@
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 3)
   (global-company-mode t))
-
+					;indent-guide
+(use-package indent-guide
+  :ensure t
+  :config
+  (indent-guide-global-mode))
 ;;Try - Test out packages
 (use-package try
   :ensure t)
