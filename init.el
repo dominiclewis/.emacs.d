@@ -13,7 +13,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
 (require 'use-package)
-
 ;; Theme
 (use-package doom-themes
   :ensure t
@@ -26,7 +25,6 @@
   (doom-themes-visual-bell-config)
   (doom-themes-org-config)
   )
-
 ;; projectile
  (use-package projectile
    :ensure t
@@ -34,7 +32,12 @@
    :config
    (projectile-global-mode)
    (setq projectile-completion-system 'default))
-
+;;Emacs Dashboard
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook)
+  (setq dashboard-startup-banner 'official))
 ;; Company - Autocompletion
 (use-package company
   :ensure t
@@ -42,11 +45,12 @@
   (setq company-idle-delay 0)
   (setq company-minimum-prefix-length 3)
   (global-company-mode t))
-					;indent-guide
+;indent-guide
 (use-package indent-guide
   :ensure t
   :config
   (indent-guide-global-mode))
+
 ;;Try - Test out packages
 (use-package try
   :ensure t)
