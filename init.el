@@ -25,6 +25,7 @@
   (doom-themes-visual-bell-config)
   (doom-themes-org-config)
   )
+
 ;; projectile
  (use-package projectile
    :ensure t
@@ -32,6 +33,20 @@
    :config
    (projectile-global-mode)
    (setq projectile-completion-system 'default))
+
+;Magit - Git
+(use-package magit
+  :ensure t
+  :init
+  (progn
+  (bind-key "C-x g" 'magit-status)
+  ))
+
+; Git Gutter
+  (use-package git-gutter
+  :ensure t
+  :init
+  (global-git-gutter-mode +1))
 
 ;; NeoTree
 (use-package neotree
