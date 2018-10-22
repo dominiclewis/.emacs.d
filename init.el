@@ -33,6 +33,13 @@
    (projectile-global-mode)
    (setq projectile-completion-system 'default))
 
+;; NeoTree
+(use-package neotree
+  :ensure t
+  :config
+  (global-set-key [f8] 'neotree-toggle)
+  )
+
 ;;Emacs Dashboard
 (use-package dashboard
   :ensure t
