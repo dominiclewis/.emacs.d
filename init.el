@@ -26,6 +26,8 @@
   (doom-themes-org-config)
   )
 
+(use-package all-the-icons)
+
 ;; projectile
  (use-package projectile
    :ensure t
