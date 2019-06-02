@@ -136,13 +136,13 @@
     ))
 
 ;; UI
-(menu-bar-mode   -1)
+(menu-bar-mode -1)
 
 ;; Line Numbers
-(when (version<= "26.0.50" emacs-version )
+(when (version<= "26.0.50" emacs-version)
     (global-display-line-numbers-mode))
 
-;; Visual Line Mode (Wrap)
+;; Visual Line Mode wrapping
 (global-visual-line-mode t)
 
 ;; Visual Line Mode line navigation
