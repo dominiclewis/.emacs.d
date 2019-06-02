@@ -145,10 +145,11 @@
     (global-display-line-numbers-mode))
 
 ;; Visual Line Mode wrapping
-(global-visual-line-mode t)
+;(global-visual-line-mode t) Apparently not needed when line-move-visual is set?
 
 ;; Visual Line Mode line navigation
-(setq line-move-visual nil)
+(setq line-move-visual nil
+      track-eol t) ;Track EOL means <ctrl+n/p> behavior consistent,
 
 ;;Column Mode
 (setq column-number-mode t)
