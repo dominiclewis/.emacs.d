@@ -142,6 +142,12 @@
 (when (version<= "26.0.50" emacs-version )
     (global-display-line-numbers-mode))
 
+;; Visual Line Mode (Wrap)
+(global-visual-line-mode t)
+
+;; Visual Line Mode line navigation
+(setq line-move-visual nil)
+
 ;;Column Mode
 (setq column-number-mode t)
 
