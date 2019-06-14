@@ -160,6 +160,8 @@
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
 
+;;C++ Indentation
+(setq-default c-basic-offset 4)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
