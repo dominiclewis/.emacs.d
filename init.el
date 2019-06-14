@@ -161,7 +161,8 @@
 (global-set-key "\C-cb" 'org-switchb)
 
 ;;C++ Indentation
-(setq-default c-basic-offset 4)
+(setq c-default-style "linux"
+                c-basic-offset 4)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
