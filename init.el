@@ -93,7 +93,7 @@
         :ensure t
 	:config
 	(which-key-mode))
-					;
+
 ;;Spell Checking
 (use-package flyspell
   :ensure t
