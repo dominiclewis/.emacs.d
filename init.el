@@ -3,8 +3,7 @@
 (setq package-enable-at-startup nil)
 (setq package-archives '(("org"   . "https://orgmode.org/elpa/")
                          ("gnu"   . "https://elpa.gnu.org/packages/")
-                         ("melpa" . "https://melpa.org/packages/")
-			 ("marmalade" . "https://marmalade-repo.org/packages/")))
+                         ("melpa" . "https://melpa.org/packages/")))
 
 (package-initialize)
 
@@ -14,8 +13,27 @@
   (package-install 'use-package))
 (require 'use-package)
 
+;; Theme
+(use-package doom-themes
+  :ensure t
+  :init
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold t    ; if nil, bold is universally disabled
+	doom-themes-enable-italic t) ; if nil, italics is universally disable
+  :config
+  (load-theme 'doom-one t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-org-config)
+  )
+
+; Evil
+(use-package evil
+  :ensure t
+  :config
+  (evil-mode t))
+
 ; Git Gutter
-  (use-package git-gutter
+ (use-package git-gutter
   :ensure t
   :init
   (global-git-gutter-mode +1))
@@ -40,6 +58,12 @@
   :config
   (indent-guide-global-mode))
 
+;;Beacon
+(use-package beacon
+  :ensure t
+  :config
+  (beacon-mode t))
+
 ;;Try - Test out packages
 (use-package try
   :ensure t)
@@ -52,10 +76,13 @@
 
 ;; UI
 (menu-bar-mode -1)
+(tool-bar-mode -1)
+(toggle-scroll-bar -1)
 
 ;; Line Numbers
 (when (version<= "26.0.50" emacs-version)
     (global-display-line-numbers-mode))
+
 
 ;; Visual Line Mode line navigation
 (setq line-move-visual nil
@@ -69,8 +96,23 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
+;; Org Indent Mode
+(add-hook 'org-mode-hook 'org-indent-mode)
 
 ;;C++ Indentation
 (setq c-default-style "linux"
                 c-basic-offset 4)
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(evil which-key try beacon indent-guide dashboard neotree git-gutter doom-themes use-package)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
