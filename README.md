@@ -1,7 +1,6 @@
 ## Setup
 ### From Scratch
-1. Create ~/.emacs.d/
-2. Clone the repo into it
+2. Clone the repo into ~/
 3. Launch Emacs
 ## Links
 ## Useful Links
