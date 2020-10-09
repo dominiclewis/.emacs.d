@@ -26,11 +26,11 @@
   (doom-themes-org-config)
   )
 
-; Evil
-(use-package evil
-  :ensure t
-  :config
-  (evil-mode t))
+;; Evil
+;(use-package evil
+;  :ensure t
+;  :config
+;  (evil-mode t))
 
 ; Git Gutter
  (use-package git-gutter
@@ -96,12 +96,27 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-cb" 'org-switchb)
+
 ;; Org Indent Mode
 (add-hook 'org-mode-hook 'org-indent-mode)
 
+;; Org Agenda
+;; The pipe below means task following it are considered by org as "complete".
+(setq org-todo-keywords
+      '((sequence "TODO" "IN-PROGRESS" "BLOCKED" "|" "DONE" "CANCELED")))
+
 ;;C++ Indentation
 (setq c-default-style "linux"
-                c-basic-offset 4)
+      c-basic-offset 4)
+
+;; Markdown
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "/usr/local/bin/pandoc"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -109,7 +124,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(evil which-key try beacon indent-guide dashboard neotree git-gutter doom-themes use-package)))
+   '(markdown-mode evil which-key try beacon indent-guide dashboard neotree git-gutter doom-themes use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
